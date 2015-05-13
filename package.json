@@ -1,0 +1,25 @@
+{
+  "name": "wp-react",
+  "version": "0.0.0",
+  "description": "WordPress Theme using React & WP-API and not using PHP.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "react": "^0.13.3",
+    "gulp": "^3.8.11",
+    "react-router": "^0.13.3",
+    "browserify": "^10.1.3",
+    "browser-sync": "^2.7.1",
+    "react-tools": "^0.13.3",
+    "vinyl-source-stream": "^1.1.0",
+    "reactify": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "hideokamoto",
+  "license": "gpl"
+}
