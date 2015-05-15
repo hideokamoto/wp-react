@@ -9,7 +9,7 @@ var Header = React.createClass({
           <ul className="container">
             <li><Link to="app"><h1 className="site-title">React-router sample</h1></Link></li>
             <li><Link to="inbox">Inbox</Link></li>
-            <li><Link to="calendar">Calendar</Link></li>
+            <li><Link to="post" params={{postId: 'post'}}>Post</Link></li>
           </ul>
         </nav>
       </header>
