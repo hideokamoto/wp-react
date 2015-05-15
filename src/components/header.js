@@ -8,8 +8,8 @@ var Header = React.createClass({
         <nav className="nav-wrapper">
           <ul className="container">
             <li><Link to="app"><h1 className="site-title">React-router sample</h1></Link></li>
-            <li><Link to="inbox">Inbox</Link></li>
             <li><Link to="post" params={{postId: 'post'}}>Post</Link></li>
+            <li><Link to="gallery">Gallery</Link></li>
           </ul>
         </nav>
       </header>
