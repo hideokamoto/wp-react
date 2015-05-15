@@ -9,9 +9,14 @@ var NotFoundRoute = Router.NotFoundRoute;
 var Dashboard = require('../src/components/dashboard.js');
 var NotFound  = require('../src/components/notfound.js');
 var Header    = require('../src/components/header.js');
-var PostList  = require('../src/components/postlist.js');
-var PostContent = require('../src/components/postcont.js');
 
+//Post
+var Post        = require('../src/components/post/post.js');
+var PostList    = require('../src/components/post/postlist.js');
+var PostContent = require('../src/components/post/postcont.js');
+
+//Media
+var Media       = require('../src/components/media/media.js');
 var Gallery = React.createClass({
   render: function(){
     return(
@@ -32,25 +37,20 @@ var App = React.createClass({
   }
 });
 
-var Post = React.createClass({
-  render: function(){
-    return (
-      <div id="post">
-        <RouteHandler/>
-      </div>
-    )
-  }
-});
+
 
 
 var routes = (
   <Route name="app" path="/" handler={App}>
-    <Route name="gallery" handler={Gallery} />
     <DefaultRoute handler={Dashboard} />
     <NotFoundRoute handler={NotFound}/>
     <Route name="post" path="/:postId" handler={Post}>
       <DefaultRoute handler={PostList} />
       <NotFoundRoute handler={PostContent} />
+    </Route>
+    <Route name="media" path="/:mediaId" handler={Media}>
+      <DefaultRoute handler={Gallery} />
+      <NotFoundRoute handler={Gallery} />
     </Route>
   </Route>
 );
