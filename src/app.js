@@ -6,23 +6,9 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var NotFoundRoute = Router.NotFoundRoute;
 
-
-var Dashboard = React.createClass({
-  render: function(){
-    return(
-      <div>Dashboard</div>
-    );
-  }
-});
-
-
-var NotFound = React.createClass({
-    render: function(){
-      return (
-        <div className="hode">not</div>
-      );
-    }
-});
+var Dashboard = require('../src/components/dashboard.js');
+var NotFound  = require('../src/components/notfound.js');
+var Header    = require('../src/components/header.js');
 
 var Inbox = React.createClass({
   render: function(){
@@ -43,14 +29,8 @@ var Calendar = React.createClass({
 var App = React.createClass({
   render: function(){
     return(
-      <div>
-        <header>
-          <ul>
-            <li><Link to="app">Dashboard</Link></li>
-            <li><Link to="inbox">Inbox</Link></li>
-            <li><Link to="calendar">Calendar</Link></li>
-          </ul>
-        </header>
+      <div id="container">
+        <Header/>
         <RouteHandler/>
       </div>
     )

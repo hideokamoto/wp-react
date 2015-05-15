@@ -7,6 +7,7 @@ gulp.task('default',
   ['browser-sync'],function(){
     gulp.watch("./*.html", ['bs-reload']);
     gulp.watch("./src/app.js",['browserify']);
+    gulp.watch("./src/components/*.js",['browserify']);
     gulp.watch('./build/bundle.js',['bs-reload']);
   }
 );
