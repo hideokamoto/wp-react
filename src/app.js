@@ -44,11 +44,11 @@ var routes = (
   <Route name="app" path="/" handler={App}>
     <DefaultRoute handler={Dashboard} />
     <NotFoundRoute handler={NotFound}/>
-    <Route name="post" path="/:postId" handler={Post}>
+    <Route name="post" path="p/:postId" handler={Post}>
       <DefaultRoute handler={PostList} />
       <NotFoundRoute handler={PostContent} />
     </Route>
-    <Route name="media" path="/:mediaId" handler={Media}>
+    <Route name="media" path="m/:mediaId" handler={Media}>
       <DefaultRoute handler={Gallery} />
       <NotFoundRoute handler={Gallery} />
     </Route>
