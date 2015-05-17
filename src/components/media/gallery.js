@@ -5,8 +5,8 @@ var Link = Router.Link;
 var GalleryCont = React.createClass({
   getInitialState: function(){
     return {
-    postData: this.props.data
-  }
+      postData: this.props.data
+    }
   },
   render: function(){
     var data = this.state.postData;
