@@ -18,6 +18,7 @@ var PostContent = require('../src/components/post/postcont.js');
 //Media
 var Media       = require('../src/components/media/media.js');
 var Gallery     = require('../src/components/media/gallery.js');
+var MediaContent= require('../src/components/media/mediacont.js');
 
 var App = React.createClass({
   render: function(){
@@ -41,7 +42,7 @@ var routes = (
     </Route>
     <Route name="media" path="m/:mediaId" handler={Media}>
       <DefaultRoute handler={Gallery} />
-      <NotFoundRoute handler={Gallery} />
+      <NotFoundRoute handler={MediaContent} />
     </Route>
   </Route>
 );

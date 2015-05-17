@@ -15,8 +15,10 @@ var GalleryCont = React.createClass({
     };
     return (
       <section id={data.ID}>
+        <Link to="media" params={params}>
           <img src={data.guid} />
           <p>{data.title}</p>
+        </Link>
         <hr />
       </section>
     );
