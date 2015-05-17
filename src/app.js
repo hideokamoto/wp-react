@@ -17,14 +17,7 @@ var PostContent = require('../src/components/post/postcont.js');
 
 //Media
 var Media       = require('../src/components/media/media.js');
-var Gallery = React.createClass({
-  render: function(){
-    return(
-      <div>Gallery</div>
-    );
-  }
-});
-
+var Gallery     = require('../src/components/media/gallery.js');
 
 var App = React.createClass({
   render: function(){
@@ -36,8 +29,6 @@ var App = React.createClass({
     )
   }
 });
-
-
 
 
 var routes = (
