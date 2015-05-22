@@ -20,6 +20,9 @@ var Media       = require('../src/components/media/media.js');
 var Gallery     = require('../src/components/media/gallery.js');
 var MediaContent= require('../src/components/media/mediacont.js');
 
+//Get WP-API Tester
+var Wpapi = require('../src/components/wpapi/wpapi.js');
+
 var App = React.createClass({
   render: function(){
     return(
@@ -44,6 +47,7 @@ var routes = (
       <DefaultRoute handler={Gallery} />
       <NotFoundRoute handler={MediaContent} />
     </Route>
+    <Route name="wpapi" path="wpapi" handler={Wpapi} />
   </Route>
 );
 

@@ -31,7 +31,7 @@ var PostContent = React.createClass({
     }
     return (
       <article className="container">
-        <h2>{data.title}</h2>
+        <h2 className="post-title">{data.title}</h2>
         <div dangerouslySetInnerHTML={{__html: data.content}} className="content"></div>
       </article>
     );

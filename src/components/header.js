@@ -10,6 +10,7 @@ var Header = React.createClass({
             <li><Link to="app"><h1 className="site-title">React-router sample</h1></Link></li>
             <li><Link to="post" params={{postId: 'post'}}>Post</Link></li>
             <li><Link to="media" params={{mediaId: 'media'}}>Media</Link></li>
+            <li><Link to="wpapi">WP-API</Link></li>
           </ul>
         </nav>
       </header>

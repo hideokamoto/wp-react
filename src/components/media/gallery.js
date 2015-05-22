@@ -14,13 +14,10 @@ var GalleryCont = React.createClass({
       mediaId: 'media/' + data.ID
     };
     return (
-      <section id={data.ID}>
-        <Link to="media" params={params}>
+        <Link to="media" params={params} id={data.ID} className="col s4">
           <img src={data.guid} />
-          <p>{data.title}</p>
+          <p className="mediaList-title">{data.title}</p>
         </Link>
-        <hr />
-      </section>
     );
   }
 });
@@ -41,7 +38,9 @@ var Gallery = React.createClass({
     });
     return (
       <div id="postlist" className="container">
-        {medias}
+        <div className="row">
+          {medias}
+        </div>
       </div>
     );
   },
