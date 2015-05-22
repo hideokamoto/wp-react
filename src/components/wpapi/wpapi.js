@@ -1,7 +1,8 @@
 var React = require("react");
-
+var Addons = require('react/addons');
 
 var Wpapi = React.createClass({
+  mixins: [Addons.addons.LinkedStateMixin],
   getInitialState: function() {
     return {
       postData: {
@@ -19,13 +20,17 @@ var Wpapi = React.createClass({
     var data = this.state.postData;
     return (
       <div className="container">
-        <h1>WP-APIでデータを取得する</h1>
+        <h1>WP-APIテスター</h1>
         <p>
-          WP-API系のハンズ・オンする時に使いたい。<br/>
-          inputエリアにWP-APIのパラメータを打ち込んだら、<br/>
-          下に取得したデータが表示されるようなイメージ<br/>
-          とりあえず「posts」の取得だけを考えよう。
+          URLを入力して「Submit」をクリックすると、WP-APIの情報を取得します。<br/>
+          そのうちpostやmedia、filterクエリにも対応予定。
         </p>
+        <form className="section" onSubmit={this.submitHandler}>
+          <input name="url" type="url" valueLink={this.linkState('url')} />
+          <button className="btn-large waves-effect waves-light" type="submit" name="action">
+            Submit
+          </button>
+        </form>
         <dl>
           <dt>表示中のサイト</dt><dd><a href={data.URL}>{data.name}</a></dd>
           <dt>サイトの説明</dt><dd>{data.description}</dd>
@@ -33,6 +38,13 @@ var Wpapi = React.createClass({
         </dl>
       </div>
     );
+  },
+  submitHandler: function(event){
+    event.preventDefault();
+    this.setState({
+        url: this.state.url
+    });
+    this.ajaxRequest(this.state.url);
   },
   componentDidMount: function() {
     this.ajaxRequest(this.state.url);
@@ -49,6 +61,9 @@ var Wpapi = React.createClass({
       }.bind(this),
       error: function(data){
         console.error(this.props.url, status, data.toString());
+        console.log(data);
+        var errorMsg = data.status + data.statusText;
+        alert(errorMsg);
       }.bind(this)
     });
   },
