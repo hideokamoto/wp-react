@@ -20,7 +20,7 @@ var Wproot = React.createClass({
     var data = this.state.postData;
     return (
       <div className="row">
-        <h1>WP-APIテスター</h1>
+        <h2>WP-APIテスターaaa</h2>
         <p>
           URLを入力して「Submit」をクリックすると、WP-APIの情報を取得します。<br/>
           そのうちpostやmedia、filterクエリにも対応予定。

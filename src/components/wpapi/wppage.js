@@ -19,7 +19,7 @@ var Wproot = React.createClass({
   render: function(){
     var data = this.state.postData;
     return (
-      <div className="row">
+      <div className="container">
         <h1>WP-APIテスター</h1>
         <p>
           URLを入力して「Submit」をクリックすると、WP-APIの情報を取得します。<br/>
