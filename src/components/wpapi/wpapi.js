@@ -11,16 +11,16 @@ var Wpapi = React.createClass({
           <div className="col s12">
             <h1>WP-APIテスター</h1>
             <ul className="tabs">
-              <li className="tab col s3">
+              <li className="tab col s6">
                 <Link to="wpapi" params={{apiId: 'wpapi'}}>Root</Link>
               </li>
-              <li className="tab col s3">
+              <li className="tab col s6">
                 <Link to="wpapi" params={{apiId: 'wpapi/post-api'}}>Post</Link>
               </li>
-              <li className="tab col s3">
+              <li className="tab col s3 hidden">
                 <Link to="wpapi" params={{apiId: 'wpapi/media'}}>Media</Link>
               </li>
-              <li className="tab col s3">
+              <li className="tab col s3 hidden">
                 <Link to="wpapi" params={{apiId: 'wpapi/page'}}>Page</Link>
               </li>
             </ul>
