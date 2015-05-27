@@ -27,7 +27,18 @@ var Wppost = React.createClass({
           </label>
           <label>
             記事件数
-            <input name="num" type="num" valueLink={this.linkState('num')} />
+            <select valueLink={this.linkState('num')}>
+              <option value="1">1件</option>
+              <option value="2">2件</option>
+              <option value="3">3件</option>
+              <option value="4">4件</option>
+              <option value="5">5件</option>
+              <option value="6">6件</option>
+              <option value="7">7件</option>
+              <option value="8">8件</option>
+              <option value="9">9件</option>
+              <option value="10">10件</option>
+            </select>
           </label>
           <button className="btn-large waves-effect waves-light" type="submit" name="action">
             Submit
@@ -51,7 +62,8 @@ module.exports = Wppost;
 var PostList = React.createClass({
   getInitialState: function() {
     return {
-      postData: []
+      postData: [],
+      requestUrl: 'loading...'
     };
   },
   render: function(){
@@ -61,9 +73,13 @@ var PostList = React.createClass({
       )
     });
     return (
-      <ul>
-        {posts}
-      </ul>
+      <div>
+        <h3>APIにリクエストしたURL</h3>
+        <input type="url" value={this.state.requestUrl} disabled />
+        <ul>
+          {posts}
+        </ul>
+      </div>
     );
   },
   componentWillReceiveProps: function(nextProps){
@@ -83,7 +99,7 @@ var PostList = React.createClass({
       callback: 'callback',
       success: function(data){
         console.log(data);
-        this.setState({postData:data});
+        this.setState({postData:data,requestUrl:url});
       }.bind(this),
       error: function(data){
         console.error(this.props.url, status, data.toString());

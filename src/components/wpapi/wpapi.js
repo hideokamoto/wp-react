@@ -9,7 +9,6 @@ var Wpapi = React.createClass({
       <div id="wpi" className="container">
         <div className="row">
           <div className="col s12">
-            <h1>WP-APIテスター</h1>
             <ul className="tabs">
               <li className="tab col s6">
                 <Link to="wpapi" params={{apiId: 'wpapi'}}>Root</Link>
