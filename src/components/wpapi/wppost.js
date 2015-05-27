@@ -8,7 +8,9 @@ var Wppost = React.createClass({
     var default_num = 10;
     return {
       url: default_url,
-      num: default_num
+      num: default_num,
+      order: 'ASC',
+      keyword: ''
     };
   },
   render: function(){
@@ -40,9 +42,21 @@ var Wppost = React.createClass({
               <option value="10">10件</option>
             </select>
           </label>
+          <label>
+            表示順序
+            <select valueLink={this.linkState('order')}>
+              <option value="ASC">昇順</option>
+              <option value="DESC">降順</option>
+            </select>
+          </label>
           <button className="btn-large waves-effect waves-light" type="submit" name="action">
             Submit
           </button>
+          <hr />
+          <label>
+            検索キーワード
+            <input type="text" valueLink={this.linkState('keyword')} />
+          </label>
         </form>
         <PostList param={this.state}/>
       </div>
@@ -53,7 +67,9 @@ var Wppost = React.createClass({
     console.log(this.state.num);
     var num = this.state.num;
     this.setState({
-        num: num
+        num: num,
+        order: this.state.order,
+        keyword : this.state.keyword
     });
   },
 });
@@ -92,7 +108,9 @@ var PostList = React.createClass({
   ajaxRequest: function(param){
     var url = param.url + "wp-json/posts?";
     if (param.num){ url += "filter[posts_per_page]=" + param.num + "&";}
-    url += "&_jsonp=?";
+    if (param.keyword){ url += "filter[s]=" + param.keyword + "&";}
+    url += "filter[order]=" + param.order + "&";
+    url += "_jsonp=?";
     $.ajax({
       url: url,
       dataType: 'jsonp',
